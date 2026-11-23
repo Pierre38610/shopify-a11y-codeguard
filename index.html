@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopify Accessibility EAA/ADA — Audit Clavier Dynamique &amp; Correctifs Liquid (Zéro Overlay)</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #f8fafc;
+      --text: #0f172a;
+      --muted: #334155;
+      --primary: #1d4ed8;
+      --primary-hover: #1e40af;
+      --border: #cbd5e1;
+      --danger-bg: #fef2f2;
+      --danger-text: #991b1b;
+      --ok-bg: #ecfdf5;
+      --ok-text: #065f46;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: #0f172a;
+      color: #ffffff;
+      padding: 12px 18px;
+      font-weight: 700;
+      text-decoration: none;
+      z-index: 1000;
+    }
+    .skip-link:focus-visible {
+      left: 12px;
+      top: 12px;
+      outline: 3px solid #f59e0b;
+      outline-offset: 2px;
+    }
+    :focus-visible {
+      outline: 3px solid var(--primary);
+      outline-offset: 3px;
+    }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+    header { border-bottom: 1px solid var(--border); padding: 18px 0; background: var(--bg); }
+    .nav-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .brand { font-weight: 800; font-size: 18px; color: var(--text); text-decoration: none; }
+    .nav-links { display: flex; gap: 20px; align-items: center; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-weight: 600; }
+    .nav-links a:hover { color: var(--primary); }
+    .hero { padding: 64px 0 48px; background: var(--surface); border-bottom: 1px solid var(--border); }
+    .badge { display: inline-block; padding: 4px 12px; border-radius: 999px; font-size: 13px; font-weight: 700; background: #dbeafe; color: #1e3a8a; }
+    h1 { font-size: clamp(28px, 4vw, 44px); line-height: 1.15; margin: 16px 0; }
+    .lead { font-size: 18px; color: var(--muted); max-width: 740px; }
+    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .btn-primary { background: var(--primary); color: #ffffff; }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-secondary { background: #ffffff; color: var(--text); border: 2px solid var(--text); }
+    section { padding: 56px 0; }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .price { font-size: 34px; font-weight: 800; margin: 12px 0; color: var(--text); }
+    ul { padding-left: 20px; color: var(--muted); }
+    li { margin-bottom: 8px; }
+    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 36px 0; font-size: 13px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#MainContent">Aller au contenu principal</a>
+
+  <header>
+    <div class="container nav-row">
+      <a class="brand" href="#top">Shopify A11y CodeGuard</a>
+      <nav aria-label="Navigation principale" class="nav-links">
+        <a href="#methode">Méthode</a>
+        <a href="#securite">Déploiement sans risque</a>
+        <a href="#tarifs">Tarifs</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="MainContent">
+    <section class="hero">
+      <div class="container">
+        <span class="badge">Audit Navigation Clavier WCAG 2.2 AA · EAA / BFSG &amp; ADA</span>
+        <h1>Réparez les vrais blocages clavier de votre thème Shopify sans widget overlay.</h1>
+        <p class="lead">
+          Les overlays JavaScript n’empêchent pas les blocages dans votre DOM : sélecteurs de variantes inaccessibles au clavier, tiroirs panier piégés, boutons icônes sans <code>aria-label</code>. Nous auditons le parcours d’achat réel au clavier et livrons des <strong>correctifs chirurgicaux Liquid/CSS</strong> sur un thème dupliqué, accompagnés d’un <strong>registre d’audit horodaté</strong>.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#tarifs">Voir les offres (dès 199 EUR)</a>
+          <a class="btn btn-secondary" href="#methode">Comment fonctionne l’audit clavier</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="methode">
+      <div class="container">
+        <h2>Pourquoi les widgets overlay échouent aux tests clavier</h2>
+        <div class="grid-2" style="margin-top:24px;">
+          <div class="card" style="background:var(--danger-bg);border-color:#fca5a5;">
+            <h3 style="margin-top:0;color:var(--danger-text);">Ce que fait un widget overlay</h3>
+            <ul>
+              <li>Ajoute une barre d’outils cosmétique par-dessus le thème existant.</li>
+              <li>Ne corrige pas les balises <code>&lt;div&gt;</code> non focusables dans <code>product-variant-picker.liquid</code>.</li>
+              <li>Ne résout pas les pièges clavier dans le tiroir panier ou les popups tierces.</li>
+              <li>Alourdit le storefront via un script externe facturé chaque mois.</li>
+            </ul>
+          </div>
+          <div class="card" style="background:var(--ok-bg);border-color:#6ee7b7;">
+            <h3 style="margin-top:0;color:var(--ok-text);">Notre approche Code Source Liquid/CSS</h3>
+            <ul>
+              <li>Audit automatisé Playwright simulant un acheteur 100 % clavier (<code>Tab</code>, <code>Enter</code>, <code>Escape</code>).</li>
+              <li>Preuves visuelles irréfutables : captures annotées + clip vidéo du blocage exact.</li>
+              <li>Séparation transparente : <strong>Code Thème Liquid</strong> vs <strong>Applications Tierces</strong> (tickets support prêts à envoyer).</li>
+              <li>Registre horodaté des audits et correctifs appliqués.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="securite" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+      <div class="container">
+        <h2>Déploiement sécurisé : zéro modification sur votre boutique en ligne</h2>
+        <div class="grid-3" style="margin-top:24px;">
+          <div class="card">
+            <h3>1. Thème dupliqué</h3>
+            <p>Tous les patchs Liquid/CSS sont livrés sur une copie isolée (archive ZIP prête à prévisualiser ou <code>git diff</code> commenté). Votre thème en production n’est jamais touché sans votre validation.</p>
+          </div>
+          <div class="card">
+            <h3>2. Validation syntaxe Liquid</h3>
+            <p>Chaque fichier modifié passe un contrôle strict de syntaxe Liquid et une comparaison visuelle avant/après pour préserver votre design et votre taux de conversion.</p>
+          </div>
+          <div class="card">
+            <h3>3. Tickets Apps Tierces</h3>
+            <p>Pour les défauts issus d’apps externes (Klaviyo, Judge.me, Rebuy, bannières cookies), vous recevez des overrides CSS sûrs et des tickets techniques prêts à transmettre aux éditeurs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tarifs">
+      <div class="container">
+        <h2>Tarifs transparents</h2>
+        <div class="grid-3" style="margin-top:24px;">
+          <div class="card">
+            <h3>Pack Correctifs Liquid</h3>
+            <div class="price">199 EUR <span style="font-size:14px;font-weight:500;color:var(--muted);">paiement unique</span></div>
+            <ul>
+              <li>Audit clavier complet WCAG 2.2 AA + clip vidéo</li>
+              <li>Patchs chirurgicaux Liquid/CSS (ZIP dupliqué + <code>changes.diff</code>)</li>
+              <li>Correction textes <code>alt</code> jusqu’à 200 produits</li>
+              <li>Registre d’audit horodaté + tickets apps tierces</li>
+            </ul>
+            <a class="btn btn-primary" style="width:100%;text-align:center;" href="https://buy.stripe.com/aFa00jaD4gMD4S8flcasg00" target="_blank" rel="noopener noreferrer" data-stripe-link="STRIPE_LINK_PACK_FIX_199_EUR">Commander le Pack 199 EUR</a>
+          </div>
+
+          <div class="card" style="border:2px solid var(--primary);">
+            <h3>Suivi &amp; Registre Continu</h3>
+            <div class="price">59 EUR <span style="font-size:14px;font-weight:500;color:var(--muted);">/ mois</span></div>
+            <ul>
+              <li>Audit clavier périodique après mises à jour thème/apps</li>
+              <li>Détection des nouveaux produits sans <code>alt</code></li>
+              <li>Mise à jour continue du registre horodaté</li>
+              <li>Alertes de régression et correctifs CSS prioritaires</li>
+            </ul>
+            <a class="btn btn-primary" style="width:100%;text-align:center;" href="https://buy.stripe.com/cNiaEX26y9kb0BS3Cuasg01" target="_blank" rel="noopener noreferrer" data-stripe-link="STRIPE_LINK_MONITORING_59_EUR_MONTH">Activer le Suivi 59 EUR/mois</a>
+          </div>
+
+          <div class="card">
+            <h3>Partenaire Agence Shopify</h3>
+            <div class="price">249 EUR <span style="font-size:14px;font-weight:500;color:var(--muted);">/ mois</span></div>
+            <ul>
+              <li>Jusqu’à 10 boutiques clientes auditées par mois</li>
+              <li>Rapports HTML/PDF en marque blanche</li>
+              <li><code>git diff</code> prêts à intégrer (Dawn, Horizon, Prestige)</li>
+              <li>3 audits pilotes gratuits pour validation</li>
+            </ul>
+            <a class="btn btn-secondary" style="width:100%;text-align:center;" href="https://buy.stripe.com/bJefZhfXo9kb84k2yqasg02" target="_blank" rel="noopener noreferrer" data-stripe-link="STRIPE_LINK_AGENCY_249_EUR_MONTH">Démarrer l’offre Agence</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        <strong>Avertissement légal &amp; méthodologique :</strong> Les audits automatisés de navigation clavier (WCAG 2.2 AA), les correctifs techniques Liquid/CSS et le registre d’audit horodaté permettent de corriger les défauts techniques détectés dans votre code source et de documenter votre démarche d’amélioration continue. Ils ne constituent pas un avis juridique ni une certification légale ; un contrôle humain complémentaire par un spécialiste reste recommandé pour les critères éditoriaux et cognitifs (sous-titres vidéo, langage clair, documents PDF).
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audit Navigation Clavier WCAG 2.2 AA — drbronner.com</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background:#f8fafc; color:#0f172a; margin:0; padding:0; line-height:1.5; }
+    .container { max-width:1100px; margin:0 auto; padding:32px 20px; }
+    .card { background:#ffffff; border:1px solid #e2e8f0; border-radius:12px; padding:24px; margin-bottom:24px; box-shadow:0 1px 2px rgba(15,23,42,0.04); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:16px; margin-top:16px; }
+    .kpi { background:#f1f5f9; border-radius:10px; padding:16px; }
+    .kpi-val { font-size:28px; font-weight:800; color:#0f172a; }
+    .kpi-lbl { font-size:13px; color:#475569; }
+    table { width:100%; border-collapse:collapse; margin-top:12px; }
+    th { text-align:left; padding:12px; background:#f1f5f9; font-size:13px; color:#334155; border-bottom:2px solid #cbd5e1; }
+    a:focus-visible, button:focus-visible { outline:3px solid #1d4ed8; outline-offset:2px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="card" style="border-left:6px solid #1d4ed8;">
+      <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center;">
+        <div>
+          <p style="margin:0;font-size:12px;text-transform:uppercase;letter-spacing:0.06em;color:#1d4ed8;font-weight:700;">Registre d'Audit Technique Horodaté (WCAG 2.2 AA)</p>
+          <h1 style="margin:4px 0 0 0;font-size:26px;">drbronner.com</h1>
+          <p style="margin:4px 0 0 0;font-size:14px;color:#475569;">URL testée : <a href="https://www.drbronner.com/" target="_blank" rel="noopener noreferrer">https://www.drbronner.com/</a></p>
+        </div>
+        <div style="text-align:right;font-size:13px;color:#475569;">
+          <div><strong>Date :</strong> 2026-11-23T17:21:20.066Z</div>
+          <div><strong>Hash Registre :</strong> <code>f1fb516c16fbd0ec</code></div>
+          <div><strong>Overlay détecté :</strong> <strong>accessiBe</strong></div>
+        </div>
+      </div>
+      <div style="margin-top:16px;padding:12px 16px;background:#fef2f2;border:1px solid #fecaca;border-radius:8px;color:#991b1b;font-size:14px;">
+              <strong>Constat technique :</strong> Le widget overlay <strong>accessiBe</strong> est actif sur cette boutique, mais <strong>4 blocage(s) critique(s)</strong> et <strong>3 défaut(s) majeur(s)</strong> subsistent lors d'un parcours d'achat exécuté uniquement au clavier.
+            </div>
+      <div class="grid">
+        <div class="kpi"><div class="kpi-val">7</div><div class="kpi-lbl">Défauts détectés</div></div>
+        <div class="kpi"><div class="kpi-val" style="color:#b91c1c;">4</div><div class="kpi-lbl">Blocages critiques clavier</div></div>
+        <div class="kpi"><div class="kpi-val" style="color:#065f46;">7</div><div class="kpi-lbl">Corrigibles dans le Thème Liquid</div></div>
+        <div class="kpi"><div class="kpi-val" style="color:#6b21a8;">0</div><div class="kpi-lbl">Imputables aux Apps Tierces</div></div>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2 style="margin-top:0;">1. Preuves Visuelles & Clip Vidéo</h2>
+      <div style="margin-bottom:16px;">
+              <video controls preload="metadata" src="proof_clip.webm" style="width:100%;max-width:860px;border-radius:10px;border:1px solid #cbd5e1;display:block;background:#0f172a;"></video>
+              <p style="margin:6px 0 0 0;font-size:13px;color:#475569;">Clip d'enregistrement clavier Playwright : <a href="proof_clip.webm" download>Télécharger proof_clip.webm</a></p>
+            </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:16px;margin-top:12px;">
+        
+      <figure style="margin:0;background:#ffffff;border:1px solid #cbd5e1;border-radius:10px;overflow:hidden;">
+        <img src="proof_screenshots/01_homepage_skip_focus.png" alt="Capture preuve audit clavier 01_homepage_skip_focus.png" style="width:100%;display:block;"/>
+        <figcaption style="padding:10px;font-size:13px;color:#334155;background:#f8fafc;border-top:1px solid #e2e8f0;">01_homepage_skip_focus.png</figcaption>
+      </figure>
+
+      <figure style="margin:0;background:#ffffff;border:1px solid #cbd5e1;border-radius:10px;overflow:hidden;">
+        <img src="proof_screenshots/02_product_variants_cta.png" alt="Capture preuve audit clavier 02_product_variants_cta.png" style="width:100%;display:block;"/>
+        <figcaption style="padding:10px;font-size:13px;color:#334155;background:#f8fafc;border-top:1px solid #e2e8f0;">02_product_variants_cta.png</figcaption>
+      </figure>
+
+      <figure style="margin:0;background:#ffffff;border:1px solid #cbd5e1;border-radius:10px;overflow:hidden;">
+        <img src="proof_screenshots/03_cart_drawer_checkout.png" alt="Capture preuve audit clavier 03_cart_drawer_checkout.png" style="width:100%;display:block;"/>
+        <figcaption style="padding:10px;font-size:13px;color:#334155;background:#f8fafc;border-top:1px solid #e2e8f0;">03_cart_drawer_checkout.png</figcaption>
+      </figure>
+      </div>
+    </section>
+
+    <section class="card" style="background:#f8fafc;border:2px solid #1d4ed8;">
+      <h2 style="margin-top:0;color:#0f172a;">Corriger ces blocages sans toucher à votre thème en production</h2>
+      <p style="margin-top:0;color:#334155;">Tous les correctifs Liquid/CSS sont livrés sur un <strong>thème dupliqué</strong> (archive ZIP prête à prévisualiser + <code>changes.diff</code>) avec registre horodaté.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="https://buy.stripe.com/aFa00jaD4gMD4S8flcasg00" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:12px 20px;background:#1d4ed8;color:#ffffff;font-weight:700;border-radius:8px;text-decoration:none;">Commander le Pack Correctifs Liquid (199 EUR)</a>
+        <a href="https://buy.stripe.com/cNiaEX26y9kb0BS3Cuasg01" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:12px 20px;background:#0f172a;color:#ffffff;font-weight:700;border-radius:8px;text-decoration:none;">Activer le Suivi Continu (59 EUR/mois)</a>
+        <a href="https://pierre38610.github.io/shopify-a11y-codeguard/" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:12px 20px;background:#ffffff;color:#0f172a;border:2px solid #0f172a;font-weight:700;border-radius:8px;text-decoration:none;">Voir la méthode &amp; garanties</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 style="margin-top:0;">2. Détail des Défauts : Code Thème Liquid vs Apps Tierces</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Sévérité</th>
+            <th>Défaut & Sélecteur</th>
+            <th>Origine</th>
+            <th>Critère WCAG</th>
+            <th>Action corrective recommandée</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+      <tr>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;"><span style="display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:700;background:#fef2f2;color:#991b1b;border:1px solid #fca5a5;">CRITICAL</span></td>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;">
+          <strong>Popup / Bannière impossible à fermer avec Échap (Escape)</strong><br/>
+          <span style="font-size:13px;color:#475569;">La fenêtre modale (div.slidecarthq) reste affichée après la touche Escape et bloque la navigation clavier.</span><br/>
+          <code style="display:inline-block;margin-top:6px;padding:2px 6px;background:#f1f5f9;border-radius:4px;font-size:12px;">div.slidecarthq</code>
+        </td>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;"><span style="display:inline-block;padding:2px 8px;border-radius:6px;font-size:12px;font-weight:600;background:#ecfdf5;color:#065f46;border:1px solid #6ee7b7;">Code Thème Liquid (Corrigé par patch)</span></td>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;font-size:13px;"><strong>2.1.2 No Keyboard Trap</strong></td>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;font-size:13px;">Ajouter un écouteur keydown Escape pour fermer la modale et restaurer le focus.</td>
+      </tr>
+
+      <tr>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;"><span style="display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:700;background:#fef2f2;color:#991b1b;border:1px solid #fca5a5;">CRITICAL</span></td>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;">
+          <strong>Focus clavier invisible sur 4 élément(s) interactif(s)</strong><br/>
+          <span style="font-size:13px;color:#475569;">Lors de la navigation au clavier (Tab), aucun contour visible (outline/box-shadow) n’indique l’élément actif (ex: iframe#chat-button.gorgias-chat-key-1vly0ou).</span><br/>
+          <code style="display:inline-block;margin-top:6px;padding:2px 6px;background:#f1f5f9;border-radius:4px;font-size:12px;">iframe#chat-button.gorgias-chat-key-1vly0ou</code>
+        </td>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;"><span style="display:inline-block;padding:2px 8px;border-radius:6px;font-size:12px;font-weight:600;background:#ecfdf5;color:#065f46;border:1px solid #6ee7b7;">Code Thème Liquid (Corrigé par patch)</span></td>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;font-size:13px;"><strong>2.4.7 Focus Visible</strong></td>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;font-size:13px;">Ajouter une règle :focus-visible haute visibilité dans assets/a11y-fixes.css.</td>
+      </tr>
+
+      <tr>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;"><span style="display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:700;background:#fffbeb;color:#92400e;border:1px solid #fcd34d;">MAJOR</span></td>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;">
+          <strong>1 bouton(s) icône(s) sans aria-label dans le header</strong><br/>
+          <span style="font-size:13px;color:#475569;">Des boutons (recherche, panier, menu) contiennent uniquement un SVG sans texte accessible (button.btn--search).</span><br/>
+          <code style="display:inline-block;margin-top:6px;padding:2px 6px;background:#f1f5f9;border-radius:4px;font-size:12px;">button.btn--search</code>
+        </td>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;"><span style="display:inline-block;padding:2px 8px;border-radius:6px;font-size:12px;font-weight:600;background:#ecfdf5;color:#065f46;border:1px solid #6ee7b7;">Code Thème Liquid (Corrigé par patch)</span></td>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;font-size:13px;"><strong>4.1.2 Name, Role, Value</strong></td>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;font-size:13px;">Ajouter aria-label=&quot;...&quot; dans sections/header.liquid.</td>
+      </tr>
+
+      <tr>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;"><span style="display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:700;background:#fef2f2;color:#991b1b;border:1px solid #fca5a5;">CRITICAL</span></td>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;">
+          <strong>Le focus clavier ne se déplace pas dans le tiroir panier</strong><br/>
+          <span style="font-size:13px;color:#475569;">À l’ouverture de div, le focus reste piégé derrière le tiroir sur la page produit.</span><br/>
+          <code style="display:inline-block;margin-top:6px;padding:2px 6px;background:#f1f5f9;border-radius:4px;font-size:12px;">div</code>
+        </td>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;"><span style="display:inline-block;padding:2px 8px;border-radius:6px;font-size:12px;font-weight:600;background:#ecfdf5;color:#065f46;border:1px solid #6ee7b7;">Code Thème Liquid (Corrigé par patch)</span></td>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;font-size:13px;"><strong>2.4.3 Focus Order</strong></td>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;font-size:13px;">Déplacer programmatiquement le focus sur le tiroir panier à l’ouverture dans snippets/cart-drawer.liquid.</td>
+      </tr>
+
+      <tr>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;"><span style="display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:700;background:#fef2f2;color:#991b1b;border:1px solid #fca5a5;">CRITICAL</span></td>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;">
+          <strong>Bouton Commander / Checkout inaccessible avec Tab dans le tiroir panier</strong><br/>
+          <span style="font-size:13px;color:#475569;">Impossible d’atteindre le bouton Checkout en 12 pressions Tab dans div.</span><br/>
+          <code style="display:inline-block;margin-top:6px;padding:2px 6px;background:#f1f5f9;border-radius:4px;font-size:12px;">div</code>
+        </td>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;"><span style="display:inline-block;padding:2px 8px;border-radius:6px;font-size:12px;font-weight:600;background:#ecfdf5;color:#065f46;border:1px solid #6ee7b7;">Code Thème Liquid (Corrigé par patch)</span></td>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;font-size:13px;"><strong>2.1.1 Keyboard</strong></td>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;font-size:13px;">Corriger le focus trap et l’ordre de tabulation dans snippets/cart-drawer.liquid.</td>
+      </tr>
+
+      <tr>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;"><span style="display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:700;background:#fffbeb;color:#92400e;border:1px solid #fcd34d;">MAJOR</span></td>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;">
+          <strong>axe-core: ARIA hidden element must not be focusable or contain focusable elements</strong><br/>
+          <span style="font-size:13px;color:#475569;">Ensure aria-hidden elements are not focusable nor contain focusable elements</span><br/>
+          <code style="display:inline-block;margin-top:6px;padding:2px 6px;background:#f1f5f9;border-radius:4px;font-size:12px;">.announcement__slide--announcement_8eEEyz</code>
+        </td>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;"><span style="display:inline-block;padding:2px 8px;border-radius:6px;font-size:12px;font-weight:600;background:#ecfdf5;color:#065f46;border:1px solid #6ee7b7;">Code Thème Liquid (Corrigé par patch)</span></td>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;font-size:13px;"><strong>wcag2a, wcag412</strong></td>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;font-size:13px;">https://dequeuniversity.com/rules/axe/4.14/aria-hidden-focus?application=playwright</td>
+      </tr>
+
+      <tr>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;"><span style="display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:700;background:#fffbeb;color:#92400e;border:1px solid #fcd34d;">MAJOR</span></td>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;">
+          <strong>axe-core: Interactive controls must not be nested</strong><br/>
+          <span style="font-size:13px;color:#475569;">Ensure interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies</span><br/>
+          <code style="display:inline-block;margin-top:6px;padding:2px 6px;background:#f1f5f9;border-radius:4px;font-size:12px;">summary</code>
+        </td>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;"><span style="display:inline-block;padding:2px 8px;border-radius:6px;font-size:12px;font-weight:600;background:#ecfdf5;color:#065f46;border:1px solid #6ee7b7;">Code Thème Liquid (Corrigé par patch)</span></td>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;font-size:13px;"><strong>wcag2a, wcag412</strong></td>
+        <td style="padding:12px;border-bottom:1px solid #e2e8f0;vertical-align:top;font-size:13px;">https://dequeuniversity.com/rules/axe/4.14/nested-interactive?application=playwright</td>
+      </tr>
+        </tbody>
+      </table>
+    </section>
+
+    
+
+    <footer style="font-size:12px;color:#475569;padding:16px 0;">
+      <strong>Avertissement méthodologique :</strong> Cet audit automatisé couvre les critères techniques de navigation clavier et d'analyse DOM (WCAG 2.2 AA). Il constitue une démarche technique documentée et un registre horodaté d'actions correctives, mais ne remplace pas un audit humain complet pour les critères éditoriaux ou cognitifs (sous-titres vidéo, langage clair, documents PDF).
+    </footer>
+  </div>
+</body>
+</html>
