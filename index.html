@@ -3,98 +3,393 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shopify Accessibility EAA/ADA — Audit Clavier Dynamique &amp; Correctifs Liquid (Zéro Overlay)</title>
+  <title>Shopify A11y CodeGuard | Audit Clavier WCAG 2.2 AA &amp; Correctifs Liquid</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #ffffff;
-      --surface: #f8fafc;
-      --text: #0f172a;
-      --muted: #334155;
-      --primary: #1d4ed8;
-      --primary-hover: #1e40af;
-      --border: #cbd5e1;
-      --danger-bg: #fef2f2;
-      --danger-text: #991b1b;
-      --ok-bg: #ecfdf5;
-      --ok-text: #065f46;
+      --bg-canvas: #F4F3EE;
+      --bg-surface: #FFFFFF;
+      --bg-subtle: #ECEAE3;
+      --border-default: #DCDAD2;
+      --border-strong: #B8B5AA;
+      --text-primary: #141413;
+      --text-secondary: #63625C;
+      --text-muted: #8E8C84;
+      --accent: #1B6B44;
+      --accent-hover: #145334;
+      --danger-text: #B91C1C;
+      --danger-bg: #FEE2E2;
+      --ok-text: #15803D;
+      --ok-bg: #DCFCE7;
+      --radius-sm: 2px;
+      --radius-md: 4px;
+      --radius-lg: 6px;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, monospace;
     }
+
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      font-family: var(--font-sans);
+      background: var(--bg-canvas);
+      color: var(--text-primary);
+      font-size: 15px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
     }
+
     .skip-link {
       position: absolute;
       left: -9999px;
       top: 0;
-      background: #0f172a;
-      color: #ffffff;
-      padding: 12px 18px;
-      font-weight: 700;
+      background: var(--text-primary);
+      color: #FFFFFF;
+      padding: 10px 16px;
+      font-weight: 600;
+      font-size: 13px;
       text-decoration: none;
       z-index: 1000;
     }
+
     .skip-link:focus-visible {
-      left: 12px;
-      top: 12px;
-      outline: 3px solid #f59e0b;
+      left: 16px;
+      top: 16px;
+      outline: 2px solid var(--accent);
       outline-offset: 2px;
     }
+
     :focus-visible {
-      outline: 3px solid var(--primary);
-      outline-offset: 3px;
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
     }
-    .container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
-    header { border-bottom: 1px solid var(--border); padding: 18px 0; background: var(--bg); }
-    .nav-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-    .brand { font-weight: 800; font-size: 18px; color: var(--text); text-decoration: none; }
-    .nav-links { display: flex; gap: 20px; align-items: center; }
-    .nav-links a { color: var(--muted); text-decoration: none; font-weight: 600; }
-    .nav-links a:hover { color: var(--primary); }
-    .hero { padding: 64px 0 48px; background: var(--surface); border-bottom: 1px solid var(--border); }
-    .badge { display: inline-block; padding: 4px 12px; border-radius: 999px; font-size: 13px; font-weight: 700; background: #dbeafe; color: #1e3a8a; }
-    h1 { font-size: clamp(28px, 4vw, 44px); line-height: 1.15; margin: 16px 0; }
-    .lead { font-size: 18px; color: var(--muted); max-width: 740px; }
-    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
-    .btn {
-      display: inline-block;
-      padding: 14px 24px;
-      border-radius: 8px;
-      font-weight: 700;
+
+    code {
+      font-family: var(--font-mono);
+      font-size: 0.88em;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-sm);
+      padding: 1px 5px;
+      color: var(--text-primary);
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-default);
+      padding: 16px 0;
+    }
+
+    .nav-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .brand {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
       text-decoration: none;
-      font-size: 16px;
-      cursor: pointer;
+      text-transform: uppercase;
     }
-    .btn-primary { background: var(--primary); color: #ffffff; }
-    .btn-primary:hover { background: var(--primary-hover); }
-    .btn-secondary { background: #ffffff; color: var(--text); border: 2px solid var(--text); }
-    section { padding: 56px 0; }
-    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
-    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
-    .card {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 12px;
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: color 110ms cubic-bezier(0.2, 0, 0, 1);
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .mono-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-secondary);
+      margin: 0 0 12px 0;
+    }
+
+    .hero {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--border-default);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+      gap: 40px;
+      align-items: start;
+    }
+
+    h1 {
+      font-size: clamp(28px, 3.8vw, 42px);
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+      font-weight: 700;
+      margin: 0 0 20px 0;
+      max-width: 18ch;
+    }
+
+    .lead {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 56ch;
+      margin: 0 0 28px 0;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 18px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 1;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 110ms cubic-bezier(0.2, 0, 0, 1), border-color 110ms cubic-bezier(0.2, 0, 0, 1);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #FFFFFF;
+      border: 1px solid var(--accent);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      border-color: var(--accent-hover);
+    }
+
+    .btn-secondary {
+      background: var(--bg-surface);
+      color: var(--text-primary);
+      border: 1px solid var(--border-strong);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-subtle);
+    }
+
+    .panel {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-lg);
       padding: 24px;
     }
-    .price { font-size: 34px; font-weight: 800; margin: 12px 0; color: var(--text); }
-    ul { padding-left: 20px; color: var(--muted); }
-    li { margin-bottom: 8px; }
-    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 36px 0; font-size: 13px; color: var(--muted); }
+
+    .diag-panel {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .diag-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      background: var(--bg-subtle);
+      border-bottom: 1px solid var(--border-default);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-secondary);
+    }
+
+    .diag-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-default);
+      font-size: 13px;
+    }
+
+    .diag-row:last-child {
+      border-bottom: none;
+    }
+
+    .diag-status-fail {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: var(--radius-sm);
+      background: var(--danger-bg);
+      color: var(--danger-text);
+    }
+
+    .diag-status-ok {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: var(--radius-sm);
+      background: var(--ok-bg);
+      color: var(--ok-text);
+    }
+
+    section {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--border-default);
+    }
+
+    h2 {
+      font-size: 24px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+      margin: 0 0 24px 0;
+    }
+
+    h3 {
+      font-size: 16px;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      font-weight: 600;
+      margin: 0 0 12px 0;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .step-num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    li:last-child {
+      margin-bottom: 0;
+    }
+
+    .price-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .price-card.featured {
+      border-color: var(--accent);
+      box-shadow: inset 0 3px 0 0 var(--accent);
+    }
+
+    .price {
+      font-family: var(--font-mono);
+      font-variant-numeric: tabular-nums;
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      margin: 8px 0 16px 0;
+    }
+
+    .price span {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      letter-spacing: 0;
+    }
+
+    .full-width {
+      width: 100%;
+    }
+
+    footer {
+      background: var(--bg-surface);
+      padding: 36px 0;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid,
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+      .hero,
+      section {
+        padding: 40px 0;
+      }
+    }
   </style>
 </head>
-<body>
+<body id="top">
   <a class="skip-link" href="#MainContent">Aller au contenu principal</a>
 
   <header>
     <div class="container nav-row">
       <a class="brand" href="#top">Shopify A11y CodeGuard</a>
       <nav aria-label="Navigation principale" class="nav-links">
-        <a href="#methode">Méthode</a>
-        <a href="#securite">Déploiement sans risque</a>
+        <a href="#methode">Methode</a>
+        <a href="#securite">Deploiement</a>
         <a href="#tarifs">Tarifs</a>
       </nav>
     </div>
@@ -102,60 +397,90 @@
 
   <main id="MainContent">
     <section class="hero">
-      <div class="container">
-        <span class="badge">Audit Navigation Clavier WCAG 2.2 AA · EAA / BFSG &amp; ADA</span>
-        <h1>Réparez les vrais blocages clavier de votre thème Shopify sans widget overlay.</h1>
-        <p class="lead">
-          Les overlays JavaScript n’empêchent pas les blocages dans votre DOM : sélecteurs de variantes inaccessibles au clavier, tiroirs panier piégés, boutons icônes sans <code>aria-label</code>. Nous auditons le parcours d’achat réel au clavier et livrons des <strong>correctifs chirurgicaux Liquid/CSS</strong> sur un thème dupliqué, accompagnés d’un <strong>registre d’audit horodaté</strong>.
-        </p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#tarifs">Voir les offres (dès 199 EUR)</a>
-          <a class="btn btn-secondary" href="#methode">Comment fonctionne l’audit clavier</a>
+      <div class="container hero-grid">
+        <div>
+          <p class="mono-label">WCAG 2.2 AA / EAA / BFSG / ADA</p>
+          <h1>Corrigez les blocages clavier de votre theme Shopify dans le code Liquid.</h1>
+          <p class="lead">
+            Les widgets overlay n'empechent pas les blocages dans votre DOM : selecteurs de variantes inaccessibles au clavier, tiroirs panier pieges, boutons icones sans <code>aria-label</code>. Nous auditons le parcours d'achat reel au clavier et livrons les correctifs Liquid/CSS sur un theme duplique avec registre horodate.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#tarifs">Voir les tarifs (des 199 EUR)</a>
+            <a class="btn btn-secondary" href="#methode">Comparer overlay vs code Liquid</a>
+          </div>
         </div>
+
+        <aside class="diag-panel" aria-label="Exemple de diagnostic clavier">
+          <div class="diag-head">
+            <span>Audit clavier Playwright</span>
+            <span>60 secondes</span>
+          </div>
+          <div class="diag-row">
+            <span>Fermeture popup (<code>Escape</code>)</span>
+            <span class="diag-status-fail">BLOQUE</span>
+          </div>
+          <div class="diag-row">
+            <span>Focus tiroir panier (<code>Tab</code>)</span>
+            <span class="diag-status-fail">BLOQUE</span>
+          </div>
+          <div class="diag-row">
+            <span>Separation Liquid vs Apps tierces</span>
+            <span class="diag-status-ok">ISOLES</span>
+          </div>
+          <div class="diag-row">
+            <span>Livraison sur theme duplique</span>
+            <span class="diag-status-ok">ZERO RISQUE LIVE</span>
+          </div>
+        </aside>
       </div>
     </section>
 
     <section id="methode">
       <div class="container">
-        <h2>Pourquoi les widgets overlay échouent aux tests clavier</h2>
-        <div class="grid-2" style="margin-top:24px;">
-          <div class="card" style="background:var(--danger-bg);border-color:#fca5a5;">
-            <h3 style="margin-top:0;color:var(--danger-text);">Ce que fait un widget overlay</h3>
+        <p class="mono-label">01 / DIAGNOSTIC</p>
+        <h2>Pourquoi les widgets overlay echouent aux tests clavier</h2>
+        <div class="grid-2">
+          <div class="panel">
+            <h3>Widget overlay JavaScript</h3>
             <ul>
-              <li>Ajoute une barre d’outils cosmétique par-dessus le thème existant.</li>
-              <li>Ne corrige pas les balises <code>&lt;div&gt;</code> non focusables dans <code>product-variant-picker.liquid</code>.</li>
-              <li>Ne résout pas les pièges clavier dans le tiroir panier ou les popups tierces.</li>
-              <li>Alourdit le storefront via un script externe facturé chaque mois.</li>
+              <li>Ajoute une barre d'outils cosmetique par-dessus le theme existant.</li>
+              <li>Ne modifie pas les balises <code>&lt;div&gt;</code> non focusables dans <code>product-variant-picker.liquid</code>.</li>
+              <li>Laisse les pieges clavier actifs dans le tiroir panier et les popups tierces.</li>
+              <li>Alourdit le storefront avec un script externe facture chaque mois.</li>
             </ul>
           </div>
-          <div class="card" style="background:var(--ok-bg);border-color:#6ee7b7;">
-            <h3 style="margin-top:0;color:var(--ok-text);">Notre approche Code Source Liquid/CSS</h3>
+          <div class="panel" style="border-color: var(--accent);">
+            <h3>Correctifs Code Source Liquid/CSS</h3>
             <ul>
-              <li>Audit automatisé Playwright simulant un acheteur 100 % clavier (<code>Tab</code>, <code>Enter</code>, <code>Escape</code>).</li>
-              <li>Preuves visuelles irréfutables : captures annotées + clip vidéo du blocage exact.</li>
-              <li>Séparation transparente : <strong>Code Thème Liquid</strong> vs <strong>Applications Tierces</strong> (tickets support prêts à envoyer).</li>
-              <li>Registre horodaté des audits et correctifs appliqués.</li>
+              <li>Audit automatise Playwright simulant un acheteur 100 % clavier (<code>Tab</code>, <code>Enter</code>, <code>Escape</code>).</li>
+              <li>Preuves visuelles : captures annotees et clip video du blocage exact.</li>
+              <li>Separation nette : Code Theme Liquid vs Applications Tierces (tickets support prets a envoyer).</li>
+              <li>Registre horodate des audits et des correctifs appliques.</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="securite" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <section id="securite" style="background: var(--bg-surface);">
       <div class="container">
-        <h2>Déploiement sécurisé : zéro modification sur votre boutique en ligne</h2>
-        <div class="grid-3" style="margin-top:24px;">
-          <div class="card">
-            <h3>1. Thème dupliqué</h3>
-            <p>Tous les patchs Liquid/CSS sont livrés sur une copie isolée (archive ZIP prête à prévisualiser ou <code>git diff</code> commenté). Votre thème en production n’est jamais touché sans votre validation.</p>
+        <p class="mono-label">02 / DEPLOIEMENT</p>
+        <h2>Aucune modification sur votre boutique en production</h2>
+        <div class="grid-3">
+          <div class="panel" style="background: var(--bg-canvas);">
+            <span class="step-num">ETAPE 01</span>
+            <h3>Theme duplique</h3>
+            <p style="margin:0;color:var(--text-secondary);font-size:14px;">Tous les patchs Liquid/CSS sont livres sur une copie isolee (archive ZIP prete a previsualiser ou <code>git diff</code> commente). Votre theme en ligne n'est jamais touche sans validation.</p>
           </div>
-          <div class="card">
-            <h3>2. Validation syntaxe Liquid</h3>
-            <p>Chaque fichier modifié passe un contrôle strict de syntaxe Liquid et une comparaison visuelle avant/après pour préserver votre design et votre taux de conversion.</p>
+          <div class="panel" style="background: var(--bg-canvas);">
+            <span class="step-num">ETAPE 02</span>
+            <h3>Validation syntaxe Liquid</h3>
+            <p style="margin:0;color:var(--text-secondary);font-size:14px;">Chaque fichier modifie passe un controle strict de syntaxe Liquid et une verification visuelle avant/apres pour preserver votre design et votre parcours d'achat.</p>
           </div>
-          <div class="card">
-            <h3>3. Tickets Apps Tierces</h3>
-            <p>Pour les défauts issus d’apps externes (Klaviyo, Judge.me, Rebuy, bannières cookies), vous recevez des overrides CSS sûrs et des tickets techniques prêts à transmettre aux éditeurs.</p>
+          <div class="panel" style="background: var(--bg-canvas);">
+            <span class="step-num">ETAPE 03</span>
+            <h3>Tickets Apps Tierces</h3>
+            <p style="margin:0;color:var(--text-secondary);font-size:14px;">Pour les defauts issus d'apps externes (Klaviyo, Judge.me, Rebuy, bannieres cookies), vous recevez des overrides CSS surs et des tickets techniques prets a transmettre aux editeurs.</p>
           </div>
         </div>
       </div>
@@ -163,42 +488,49 @@
 
     <section id="tarifs">
       <div class="container">
-        <h2>Tarifs transparents</h2>
-        <div class="grid-3" style="margin-top:24px;">
-          <div class="card">
-            <h3>Pack Correctifs Liquid</h3>
-            <div class="price">199 EUR <span style="font-size:14px;font-weight:500;color:var(--muted);">paiement unique</span></div>
-            <ul>
-              <li>Audit clavier complet WCAG 2.2 AA + clip vidéo</li>
-              <li>Patchs chirurgicaux Liquid/CSS (ZIP dupliqué + <code>changes.diff</code>)</li>
-              <li>Correction textes <code>alt</code> jusqu’à 200 produits</li>
-              <li>Registre d’audit horodaté + tickets apps tierces</li>
-            </ul>
-            <a class="btn btn-primary" style="width:100%;text-align:center;" href="https://buy.stripe.com/aFa00jaD4gMD4S8flcasg00" target="_blank" rel="noopener noreferrer" data-stripe-link="STRIPE_LINK_PACK_FIX_199_EUR">Commander le Pack 199 EUR</a>
+        <p class="mono-label">03 / TARIFS</p>
+        <h2>Offres fixes et transparentes</h2>
+        <div class="grid-3">
+          <div class="price-card">
+            <div>
+              <h3>Pack Correctifs Liquid</h3>
+              <div class="price">199 EUR <span>paiement unique</span></div>
+              <ul>
+                <li>Audit clavier complet WCAG 2.2 AA + clip video</li>
+                <li>Patchs chirurgicaux Liquid/CSS (ZIP duplique + <code>changes.diff</code>)</li>
+                <li>Correction textes <code>alt</code> jusqu'a 200 produits</li>
+                <li>Registre d'audit horodate + tickets apps tierces</li>
+              </ul>
+            </div>
+            <a class="btn btn-primary full-width" href="https://buy.stripe.com/aFa00jaD4gMD4S8flcasg00" target="_blank" rel="noopener noreferrer" data-stripe-link="STRIPE_LINK_PACK_FIX_199_EUR">Commander le Pack 199 EUR</a>
           </div>
 
-          <div class="card" style="border:2px solid var(--primary);">
-            <h3>Suivi &amp; Registre Continu</h3>
-            <div class="price">59 EUR <span style="font-size:14px;font-weight:500;color:var(--muted);">/ mois</span></div>
-            <ul>
-              <li>Audit clavier périodique après mises à jour thème/apps</li>
-              <li>Détection des nouveaux produits sans <code>alt</code></li>
-              <li>Mise à jour continue du registre horodaté</li>
-              <li>Alertes de régression et correctifs CSS prioritaires</li>
-            </ul>
-            <a class="btn btn-primary" style="width:100%;text-align:center;" href="https://buy.stripe.com/cNiaEX26y9kb0BS3Cuasg01" target="_blank" rel="noopener noreferrer" data-stripe-link="STRIPE_LINK_MONITORING_59_EUR_MONTH">Activer le Suivi 59 EUR/mois</a>
+          <div class="price-card featured">
+            <div>
+              <h3>Suivi &amp; Registre Continu</h3>
+              <div class="price">59 EUR <span>/ mois</span></div>
+              <ul>
+                <li>Audit clavier periodique apres mises a jour theme/apps</li>
+                <li>Detection des nouveaux produits sans <code>alt</code></li>
+                <li>Mise a jour continue du registre horodate</li>
+                <li>Alertes de regression et correctifs CSS prioritaires</li>
+              </ul>
+            </div>
+            <a class="btn btn-primary full-width" href="https://buy.stripe.com/cNiaEX26y9kb0BS3Cuasg01" target="_blank" rel="noopener noreferrer" data-stripe-link="STRIPE_LINK_MONITORING_59_EUR_MONTH">Activer le Suivi 59 EUR/mois</a>
           </div>
 
-          <div class="card">
-            <h3>Partenaire Agence Shopify</h3>
-            <div class="price">249 EUR <span style="font-size:14px;font-weight:500;color:var(--muted);">/ mois</span></div>
-            <ul>
-              <li>Jusqu’à 10 boutiques clientes auditées par mois</li>
-              <li>Rapports HTML/PDF en marque blanche</li>
-              <li><code>git diff</code> prêts à intégrer (Dawn, Horizon, Prestige)</li>
-              <li>3 audits pilotes gratuits pour validation</li>
-            </ul>
-            <a class="btn btn-secondary" style="width:100%;text-align:center;" href="https://buy.stripe.com/bJefZhfXo9kb84k2yqasg02" target="_blank" rel="noopener noreferrer" data-stripe-link="STRIPE_LINK_AGENCY_249_EUR_MONTH">Démarrer l’offre Agence</a>
+          <div class="price-card">
+            <div>
+              <h3>Partenaire Agence Shopify</h3>
+              <div class="price">249 EUR <span>/ mois</span></div>
+              <ul>
+                <li>Jusqu'a 10 boutiques clientes auditees par mois</li>
+                <li>Rapports HTML/PDF en marque blanche</li>
+                <li><code>git diff</code> prets a integrer (Dawn, Horizon, Prestige)</li>
+                <li>3 audits pilotes gratuits pour validation</li>
+              </ul>
+            </div>
+            <a class="btn btn-secondary full-width" href="https://buy.stripe.com/bJefZhfXo9kb84k2yqasg02" target="_blank" rel="noopener noreferrer" data-stripe-link="STRIPE_LINK_AGENCY_249_EUR_MONTH">Demarrer l'offre Agence</a>
           </div>
         </div>
       </div>
@@ -207,8 +539,8 @@
 
   <footer>
     <div class="container">
-      <p>
-        <strong>Avertissement légal &amp; méthodologique :</strong> Les audits automatisés de navigation clavier (WCAG 2.2 AA), les correctifs techniques Liquid/CSS et le registre d’audit horodaté permettent de corriger les défauts techniques détectés dans votre code source et de documenter votre démarche d’amélioration continue. Ils ne constituent pas un avis juridique ni une certification légale ; un contrôle humain complémentaire par un spécialiste reste recommandé pour les critères éditoriaux et cognitifs (sous-titres vidéo, langage clair, documents PDF).
+      <p style="margin:0;max-width:85ch;">
+        <strong>Avertissement legal et methodologique :</strong> Les audits automatises de navigation clavier (WCAG 2.2 AA), les correctifs techniques Liquid/CSS et le registre d'audit horodate permettent de corriger les defauts techniques detectes dans votre code source et de documenter votre demarche d'amelioration continue. Ils ne constituent pas un avis juridique ni une certification legale ; un controle humain complementaire par un specialiste reste recommande pour les criteres editoriaux et cognitifs (sous-titres video, langage clair, documents PDF).
       </p>
     </div>
   </footer>
